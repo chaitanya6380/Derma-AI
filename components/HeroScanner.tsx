@@ -145,25 +145,25 @@ const HeroScanner: React.FC = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-10 block" />
 
       {/* Centered 3D face overlay (HTML image, avoids WebGL texture/CORS issues) */}
-      <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-4">
         <img
           src="https://storage.googleapis.com/new_client_files/Derm%20-%20AI/3d%20face.png"
           alt="3D facial wireframe"
-          className="max-h-[75vh] max-w-[50vw] w-auto h-auto object-contain opacity-90"
+          className="max-h-[60vh] sm:max-h-[70vh] md:max-h-[75vh] max-w-[90vw] sm:max-w-[70vw] md:max-w-[50vw] w-auto h-auto object-contain opacity-90"
           style={{ transform: 'translateY(-5%)' }}
         />
       </div>
 
       {/* Interactive HUD Overlay */}
-      <div className="absolute inset-0 z-30 flex items-center justify-between px-10 md:px-24 pointer-events-none">
+      <div className="absolute inset-0 z-30 flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-24 pointer-events-none">
         {/* Left Stats Panel */}
         <div className="w-1/3 hidden lg:block">
-          <div className="p-8 border-l-2 border-teal-500/50 bg-black/40 backdrop-blur-2xl rounded-r-[2.5rem] mb-8 shadow-2xl border border-white/5">
+          <div className="p-6 lg:p-8 border-l-2 border-teal-500/50 bg-black/40 backdrop-blur-2xl rounded-r-[2.5rem] mb-8 shadow-2xl border border-white/5">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
               <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-teal-400">Analysis Pipeline</p>
             </div>
-            <p className="text-3xl font-bold text-white tracking-tighter mb-4">Biometric Scan</p>
+            <p className="text-2xl lg:text-3xl font-bold text-white tracking-tighter mb-4">Biometric Scan</p>
             <div className="h-1 bg-slate-800/50 overflow-hidden rounded-full relative">
               <motion.div
                 className="absolute h-full bg-teal-500 shadow-[0_0_20px_rgba(45,212,191,0.9)]"
@@ -171,7 +171,7 @@ const HeroScanner: React.FC = () => {
                 transition={{ duration: 0.1 }}
               />
             </div>
-            <div className="mt-8 grid grid-cols-2 gap-6 font-mono text-[9px]">
+            <div className="mt-6 lg:mt-8 grid grid-cols-2 gap-4 lg:gap-6 font-mono text-[9px]">
               <div className="flex flex-col gap-1">
                 <span className="text-slate-500">FIDELITY</span>
                 <span className="text-white font-bold tracking-widest">TRUE_SENS 8K</span>
@@ -193,7 +193,7 @@ const HeroScanner: React.FC = () => {
         </div>
 
         {/* Right Content Panel (Scroll Revel) */}
-        <div className="w-full lg:w-1/3 h-[500px] flex flex-col justify-center gap-12 text-left">
+        <div className="w-full lg:w-1/3 h-auto min-h-[300px] sm:min-h-[400px] md:h-[500px] flex flex-col justify-center gap-6 sm:gap-8 md:gap-12 text-left px-2 sm:px-4">
           {SCAN_POINTS.map((point) => {
             const isActive = scrollProgress > (point.progress - 0.12) && scrollProgress < (point.progress + 0.12);
             return (
@@ -203,21 +203,21 @@ const HeroScanner: React.FC = () => {
                     initial={{ opacity: 0, x: 60, scale: 0.95, filter: 'blur(20px)' }}
                     animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, x: -60, scale: 0.95, filter: 'blur(20px)' }}
-                    className="flex flex-col gap-5 p-10 bg-slate-900/50 backdrop-blur-3xl border border-white/10 rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] pointer-events-auto"
+                    className="flex flex-col gap-4 sm:gap-5 p-6 sm:p-8 md:p-10 bg-slate-900/50 backdrop-blur-3xl border border-white/10 rounded-2xl sm:rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] pointer-events-auto"
                   >
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-4 sm:gap-6">
                       <div className="relative group">
                         <div className="absolute inset-0 bg-teal-500/20 blur-2xl rounded-full group-hover:bg-teal-500/40 transition-colors" />
-                        <span className="relative w-14 h-14 rounded-full bg-black text-teal-400 flex items-center justify-center text-lg font-mono font-bold border border-teal-500/40 shadow-inner">
+                        <span className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-black text-teal-400 flex items-center justify-center text-base sm:text-lg font-mono font-bold border border-teal-500/40 shadow-inner">
                           {point.id}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold text-white tracking-tight">{point.label}</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">{point.label}</h3>
                     </div>
-                    <p className="text-slate-400 leading-relaxed text-base font-light font-mono">
+                    <p className="text-slate-400 leading-relaxed text-sm sm:text-base font-light font-mono">
                       {point.content}
                     </p>
-                    <div className="pt-4 flex items-center justify-between border-t border-white/5">
+                    <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-t border-white/5">
                       <div className="flex gap-2">
                         <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
                         <span className="text-[10px] font-mono text-teal-500 uppercase tracking-widest font-bold">Verified</span>
@@ -233,30 +233,30 @@ const HeroScanner: React.FC = () => {
       </div>
 
       {/* Secondary HUD - Debug Logs */}
-      <div className="absolute top-24 left-10 md:left-24 font-mono text-[9px] text-teal-500/30 uppercase tracking-[0.4em] space-y-6 pointer-events-none hidden md:block">
-        <div className="p-5 border border-white/5 rounded-3xl bg-black/30 backdrop-blur-md">
-          <p className="text-white/60 font-bold mb-4 border-b border-white/10 pb-2">CORE.ENVIRONMENT</p>
+      <div className="absolute top-20 sm:top-24 left-4 sm:left-6 md:left-10 lg:left-24 font-mono text-[9px] text-teal-500/30 uppercase tracking-[0.4em] space-y-6 pointer-events-none hidden md:block">
+        <div className="p-4 sm:p-5 border border-white/5 rounded-2xl sm:rounded-3xl bg-black/30 backdrop-blur-md">
+          <p className="text-white/60 font-bold mb-3 sm:mb-4 border-b border-white/10 pb-2 text-[8px] sm:text-[9px]">CORE.ENVIRONMENT</p>
           <div className="space-y-2 text-[8px]">
-            <p className="flex justify-between gap-12">SYS_UPTIME: <span>{Math.round(clockRef.current.getElapsedTime() * 1000)}ms</span></p>
-            <p className="flex justify-between gap-12">BUFFER_STATE: <span>0x{Math.round(scrollProgress * 65535).toString(16).toUpperCase()}</span></p>
-            <p className="flex justify-between gap-12">THREAD_ID: <span>{Math.floor(Math.random() * 1000)}</span></p>
-            <p className="flex justify-between gap-12">REACH: <span>4.2 UNIT</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">SYS_UPTIME: <span>{Math.round(clockRef.current.getElapsedTime() * 1000)}ms</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">BUFFER_STATE: <span>0x{Math.round(scrollProgress * 65535).toString(16).toUpperCase()}</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">THREAD_ID: <span>{Math.floor(Math.random() * 1000)}</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">REACH: <span>4.2 UNIT</span></p>
           </div>
         </div>
       </div>
 
       {/* Scroll Call to Action */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none">
-        <div className="mb-6 h-16 flex flex-col items-center gap-2">
+      <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 text-center pointer-events-none px-4">
+        <div className="mb-4 sm:mb-6 h-12 sm:h-16 flex flex-col items-center gap-2">
           <div className="w-px flex-1 bg-gradient-to-b from-teal-500 to-transparent relative">
             <motion.div
-              className="absolute top-0 left-0 w-full bg-white h-4 shadow-[0_0_10px_#fff]"
-              animate={{ y: [0, 60] }}
+              className="absolute top-0 left-0 w-full bg-white h-3 sm:h-4 shadow-[0_0_10px_#fff]"
+              animate={{ y: [0, 48] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
             />
           </div>
         </div>
-        <p className="text-[10px] uppercase font-mono font-bold tracking-[0.6em] text-slate-600">Scroll to Navigate Data Layers</p>
+        <p className="text-[8px] sm:text-[10px] uppercase font-mono font-bold tracking-[0.4em] sm:tracking-[0.6em] text-slate-600">Scroll to Navigate Data Layers</p>
       </div>
     </section>
   );

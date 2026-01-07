@@ -27,16 +27,16 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-900 border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-900 border-y border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {features.map((f, i) => (
-            <div key={i} className="p-8 bg-slate-950 rounded-3xl border border-white/5 hover:border-teal-500/30 transition-all hover:shadow-2xl hover:shadow-teal-500/5 group">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <div key={i} className="p-6 sm:p-8 bg-slate-950 rounded-2xl sm:rounded-3xl border border-white/5 hover:border-teal-500/30 transition-all hover:shadow-2xl hover:shadow-teal-500/5 group">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-teal-500/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
                 {f.icon}
               </div>
-              <h4 className="text-lg font-bold text-white mb-3 tracking-tight">{f.title}</h4>
-              <p className="text-slate-400 text-sm leading-relaxed font-light">
+              <h4 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 tracking-tight">{f.title}</h4>
+              <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light">
                 {f.desc}
               </p>
             </div>
