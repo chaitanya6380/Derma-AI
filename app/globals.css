@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-teal-800 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-teal-600;
+}
+
+/* Selection */
+::selection {
+  @apply bg-teal-500 text-white;
+}
