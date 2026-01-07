@@ -1,4 +1,4 @@
- 'use client';
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
@@ -6,6 +6,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SCAN_POINTS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Register ScrollTrigger plugin
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const HeroScanner: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,11 +21,14 @@ const HeroScanner: React.FC = () => {
   const clockRef = useRef(new THREE.Clock());
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     if (!canvasRef.current || !containerRef.current) return;
 
     // --- Three.js Setup (scanner + particles only) ---
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     camera.position.z = 4.2;
 
     const renderer = new THREE.WebGLRenderer({
@@ -28,7 +36,7 @@ const HeroScanner: React.FC = () => {
       alpha: true,
       antialias: true
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // Dynamic Scanner Overlay (Moves with scroll)
@@ -104,9 +112,11 @@ const HeroScanner: React.FC = () => {
     });
 
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(width, height);
     };
     window.addEventListener('resize', handleResize);
 
