@@ -8,8 +8,9 @@ const config: Config = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                mono: ['JetBrains Mono', 'monospace'],
+                sans: ['var(--font-inter)', 'sans-serif'],
+                heading: ['var(--font-sora)', 'sans-serif'],
+                mono: ['var(--font-mono)', 'monospace'],
             },
             colors: {
                 background: "var(--background)",

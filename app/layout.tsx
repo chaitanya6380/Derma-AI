@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Sora } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+const sora = Sora({ subsets: ['latin'], variable: '--font-sora' });
 
 export const metadata: Metadata = {
     title: 'DermAI | Precision Diagnostics',
@@ -16,7 +17,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+        <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${sora.variable}`}>
             <body className="font-sans antialiased bg-slate-950">
                 {children}
             </body>

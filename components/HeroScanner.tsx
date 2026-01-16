@@ -16,20 +16,45 @@ const HeroScanner: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const [debugValues, setDebugValues] = useState({
+    uptime: 0,
+    bufferState: '0x0',
+    threadId: 0
+  });
   const progressRef = useRef(0);
 
   const clockRef = useRef(new THREE.Clock());
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (typeof window === 'undefined') return;
     if (!canvasRef.current || !containerRef.current) return;
+    if (!isMounted) return;
 
     // --- Three.js Setup (scanner + particles only) ---
     const scene = new THREE.Scene();
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 4.2;
+    
+    // Optimize for 16:9 aspect ratio - ensure face always fits
+    const targetAspect = 16 / 9;
+    const currentAspect = width / height;
+    let camera: THREE.PerspectiveCamera;
+    
+    if (currentAspect > targetAspect) {
+      // Wider than 16:9, adjust FOV
+      const fov = 75 * (targetAspect / currentAspect);
+      camera = new THREE.PerspectiveCamera(fov, width / height, 0.1, 1000);
+    } else {
+      camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    }
+    
+    // Adjust camera position to ensure face fits within viewport
+    camera.position.z = 3.8;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
@@ -39,41 +64,45 @@ const HeroScanner: React.FC = () => {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Dynamic Scanner Overlay (Moves with scroll)
-    // Reduce the second parameter (height) to make the scanning line thinner
-    const scanBarGeom = new THREE.BoxGeometry(6, 0.03, 6);
-    const scanBarMat = new THREE.MeshBasicMaterial({
+    // Pulsing Circle Scanner (replaces square bar)
+    const circleRadius = 2.5;
+    const circleGeom = new THREE.RingGeometry(circleRadius - 0.15, circleRadius + 0.15, 64);
+    const circleMat = new THREE.MeshBasicMaterial({
       color: 0x2dd4bf,
       transparent: true,
-      opacity: 0.9,
-      blending: THREE.AdditiveBlending
-    });
-    const scanBar = new THREE.Mesh(scanBarGeom, scanBarMat);
-    scene.add(scanBar);
-
-    // Glowing Halo effect on the scanner - slightly slimmer to match the thinner scan bar
-    const haloGeom = new THREE.CylinderGeometry(3.5, 3.5, 0.3, 64, 1, true);
-    const haloMat = new THREE.MeshBasicMaterial({
-      color: 0x2dd4bf,
-      transparent: true,
-      opacity: 0.15,
+      opacity: 0.85,
       side: THREE.DoubleSide,
       blending: THREE.AdditiveBlending
     });
-    const halo = new THREE.Mesh(haloGeom, haloMat);
-    scanBar.add(halo);
+    const scanCircle = new THREE.Mesh(circleGeom, circleMat);
+    scanCircle.rotation.x = Math.PI / 2; // Rotate to be horizontal
+    scene.add(scanCircle);
 
-    // Environmental Background Particles
-    const pCount = 1500;
+    // Dense Particles concentrated in sphere around face
+    const pCount = 4000; // Increased from 1500
     const pPos = new Float32Array(pCount * 3);
-    for (let i = 0; i < pCount * 3; i++) pPos[i] = (Math.random() - 0.5) * 15;
+    const faceCenter = new THREE.Vector3(0, 0, 0);
+    const sphereRadius = 2.5; // Concentrate particles in sphere around face
+    const innerRadius = 1.0; // Inner radius to avoid blocking face
+    
+    for (let i = 0; i < pCount * 3; i += 3) {
+      // Generate points in spherical coordinates, concentrated around face
+      const theta = Math.random() * Math.PI * 2; // Azimuth
+      const phi = Math.acos(2 * Math.random() - 1); // Elevation
+      const r = innerRadius + Math.random() * (sphereRadius - innerRadius);
+      
+      pPos[i] = r * Math.sin(phi) * Math.cos(theta); // x
+      pPos[i + 1] = r * Math.sin(phi) * Math.sin(theta); // y
+      pPos[i + 2] = r * Math.cos(phi); // z
+    }
+    
     const pGeom = new THREE.BufferGeometry();
     pGeom.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
     const pMat = new THREE.PointsMaterial({
-      size: 0.006,
+      size: 0.008, // Slightly larger for better visibility
       color: 0x2dd4bf,
       transparent: true,
-      opacity: 0.2,
+      opacity: 0.25,
       blending: THREE.AdditiveBlending
     });
     const particles = new THREE.Points(pGeom, pMat);
@@ -86,12 +115,15 @@ const HeroScanner: React.FC = () => {
       const time = clockRef.current.getElapsedTime();
       const p = progressRef.current;
 
+      // Rotate particles slowly
       particles.rotation.y += 0.0002;
 
-      // Sync Scanner & Glow
-      scanBar.position.y = 2.8 - (p * 6.5);
-      scanBar.material.opacity = 0.3 + (Math.sin(p * Math.PI) * 0.6);
-      halo.material.opacity = 0.05 + Math.abs(Math.sin(time * 8)) * 0.1;
+      // Move circle scanner with scroll
+      scanCircle.position.y = 2.2 - (p * 5.5);
+      
+      // Static opacity and scale (no flash effect)
+      scanCircle.material.opacity = 0.85;
+      scanCircle.scale.set(1, 1, 1);
 
       renderer.render(scene, camera);
     };
@@ -114,6 +146,16 @@ const HeroScanner: React.FC = () => {
     const handleResize = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
+      const currentAspect = width / height;
+      const targetAspect = 16 / 9;
+      
+      if (currentAspect > targetAspect) {
+        const fov = 75 * (targetAspect / currentAspect);
+        camera.fov = fov;
+      } else {
+        camera.fov = 75;
+      }
+      
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
@@ -125,17 +167,35 @@ const HeroScanner: React.FC = () => {
       cancelAnimationFrame(frameId);
       st.kill();
       renderer.dispose();
-      scanBarGeom.dispose();
-      scanBarMat.dispose();
-      haloGeom.dispose();
-      haloMat.dispose();
+      circleGeom.dispose();
+      circleMat.dispose();
       pGeom.dispose();
       pMat.dispose();
     };
-  }, []);
+  }, [isMounted]);
+
+  // Update debug values after mount to avoid hydration errors
+  useEffect(() => {
+    if (!isMounted) return;
+
+    // Generate threadId once
+    const threadId = Math.floor(Math.random() * 1000);
+    setDebugValues(prev => ({ ...prev, threadId }));
+
+    // Update uptime and buffer state periodically
+    const interval = setInterval(() => {
+      setDebugValues(prev => ({
+        uptime: Math.round(clockRef.current.getElapsedTime() * 1000),
+        bufferState: `0x${Math.round(scrollProgress * 65535).toString(16).toUpperCase()}`,
+        threadId: prev.threadId
+      }));
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [isMounted, scrollProgress]);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-slate-950">
+    <section ref={containerRef} className="relative w-full overflow-hidden bg-slate-950" style={{ aspectRatio: '16/9', height: '100vh', maxHeight: '100vh' }}>
       {/* Background Ambience */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_#2dd4bf10_0%,_transparent_70%)]" />
@@ -145,12 +205,12 @@ const HeroScanner: React.FC = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-10 block" />
 
       {/* Centered 3D face overlay (HTML image, avoids WebGL texture/CORS issues) */}
+      {/* Sized to fit within 16:9 viewport */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-4">
         <img
           src="https://storage.googleapis.com/new_client_files/Derm%20-%20AI/3d%20face.png"
           alt="3D facial wireframe"
-          className="max-h-[60vh] sm:max-h-[70vh] md:max-h-[75vh] max-w-[90vw] sm:max-w-[70vw] md:max-w-[50vw] w-auto h-auto object-contain opacity-90"
-          style={{ transform: 'translateY(-5%)' }}
+          className="max-h-[55vh] sm:max-h-[60vh] md:max-h-[65vh] max-w-[85vw] sm:max-w-[60vw] md:max-w-[45vw] w-auto h-auto object-contain opacity-90"
         />
       </div>
 
@@ -237,9 +297,9 @@ const HeroScanner: React.FC = () => {
         <div className="p-4 sm:p-5 border border-white/5 rounded-2xl sm:rounded-3xl bg-black/30 backdrop-blur-md">
           <p className="text-white/60 font-bold mb-3 sm:mb-4 border-b border-white/10 pb-2 text-[8px] sm:text-[9px]">CORE.ENVIRONMENT</p>
           <div className="space-y-2 text-[8px]">
-            <p className="flex justify-between gap-6 sm:gap-12">SYS_UPTIME: <span>{Math.round(clockRef.current.getElapsedTime() * 1000)}ms</span></p>
-            <p className="flex justify-between gap-6 sm:gap-12">BUFFER_STATE: <span>0x{Math.round(scrollProgress * 65535).toString(16).toUpperCase()}</span></p>
-            <p className="flex justify-between gap-6 sm:gap-12">THREAD_ID: <span>{Math.floor(Math.random() * 1000)}</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">SYS_UPTIME: <span>{isMounted ? `${debugValues.uptime}ms` : '0ms'}</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">BUFFER_STATE: <span>{isMounted ? debugValues.bufferState : '0x0'}</span></p>
+            <p className="flex justify-between gap-6 sm:gap-12">THREAD_ID: <span>{isMounted ? debugValues.threadId : '0'}</span></p>
             <p className="flex justify-between gap-6 sm:gap-12">REACH: <span>4.2 UNIT</span></p>
           </div>
         </div>
