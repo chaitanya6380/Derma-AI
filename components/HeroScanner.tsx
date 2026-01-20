@@ -152,14 +152,17 @@ const HeroScanner: React.FC = () => {
 
       <canvas ref={canvasRef} className="absolute inset-0 z-10 block" />
 
-      {/* Centered 3D head overlay SVG model */}
+      {/* Centered 3D head overlay image */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-4">
         <motion.img
-          src="/3d-face.svg.svg"
+          src="/3d-face.svg.png"
           alt="DermAI 3D head diagnostic model"
-          className="max-h-[60vh] max-w-[80vw] md:max-w-[45vw] w-auto h-auto object-contain opacity-95 rounded-[2.5rem] transition-transform duration-500"
+          className="max-h-[60vh] max-w-[80vw] md:max-w-[45vw] w-auto h-auto object-contain transition-transform duration-500"
           style={{
             transform: `translateX(${scrollProgress * 40 - 20}px) rotateY(${scrollProgress * 18}deg)`,
+          }}
+          onError={(e) => {
+            console.error('Image failed to load:', e);
           }}
         />
       </div>
