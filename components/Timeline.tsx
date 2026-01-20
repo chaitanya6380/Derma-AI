@@ -53,11 +53,11 @@ const Timeline: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-20 sm:py-24 md:py-32 lg:py-40 px-4 sm:px-6 bg-slate-950 overflow-hidden">
+    <section ref={sectionRef} className="relative py-20 sm:py-24 md:py-32 lg:py-40 px-4 sm:px-6 bg-white overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
@@ -70,8 +70,8 @@ const Timeline: React.FC = () => {
           className="text-center mb-16 sm:mb-20 md:mb-24"
         >
           <h2 className="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-teal-400 mb-4 sm:mb-6">Our Journey</h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white tracking-tight">
-            Evolving <span className="text-teal-500">Healthcare AI</span>
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-slate-900 tracking-tight">
+            Evolving <span className="text-teal-600">Healthcare AI</span>
           </h3>
         </motion.div>
 
@@ -80,7 +80,7 @@ const Timeline: React.FC = () => {
           {/* Enhanced Central Vertical Line */}
           <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 hidden md:block">
             {/* Background line */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-800 via-slate-700 to-slate-800" />
+            <div className="absolute inset-0 bg-slate-200" />
             {/* Progress line with glow */}
             <div ref={progressRef} className="absolute top-0 left-0 w-full h-0 bg-gradient-to-b from-teal-500 via-cyan-500 to-teal-500">
               <div className="absolute inset-0 bg-teal-500 blur-sm opacity-50" />
@@ -104,7 +104,7 @@ const Timeline: React.FC = () => {
                     idx % 2 === 0 ? 'md:text-right' : 'md:text-left'
                   } text-center md:text-left`}
                 >
-                  <div className="relative p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-slate-900/80 to-slate-950/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/5 hover:border-teal-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-teal-500/10">
+                  <div className="relative p-6 sm:p-8 lg:p-10 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 hover:border-teal-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-teal-500/10">
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl sm:rounded-3xl" />
                     
@@ -117,12 +117,12 @@ const Timeline: React.FC = () => {
                       </div>
 
                       {/* Title */}
-                      <h4 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-white mb-3 sm:mb-4 tracking-tight group-hover:text-teal-50 transition-colors">
+                      <h4 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight group-hover:text-teal-700 transition-colors">
                         {m.title}
                       </h4>
 
                       {/* Description */}
-                      <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-light group-hover:text-slate-300 transition-colors">
+                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-light group-hover:text-slate-700 transition-colors">
                         {m.description}
                       </p>
 
@@ -166,7 +166,7 @@ const Timeline: React.FC = () => {
                   transition={{ duration: 0.3 }}
                   className="w-full md:w-5/12 relative group/image"
                 >
-                  <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900 border border-white/5 hover:border-teal-500/30 transition-all duration-500">
+                  <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-slate-200 hover:border-teal-500/40 transition-all duration-500">
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-500 z-10" />
                     

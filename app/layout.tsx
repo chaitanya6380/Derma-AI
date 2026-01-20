@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${sora.variable}`}>
-            <body className="font-sans antialiased bg-slate-950">
+            <body className="font-sans antialiased bg-white">
                 {children}
             </body>
         </html>

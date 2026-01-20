@@ -35,11 +35,11 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-slate-950 border-t border-white/5 overflow-hidden">
+    <footer className="relative bg-white border-t border-slate-200 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-8 sm:pb-10 md:pb-12">
@@ -57,26 +57,26 @@ const Footer: React.FC = () => {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-teal-500/20">
                   <Shield size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <span className="text-2xl sm:text-3xl font-heading font-bold tracking-tighter text-white">
+                <span className="text-2xl sm:text-3xl font-heading font-bold tracking-tighter text-slate-900">
                   DERM<span className="text-teal-500">AI</span>
                 </span>
               </Link>
               
-              <p className="text-slate-400 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed max-w-sm">
+              <p className="text-slate-600 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed max-w-sm">
                 Empowering clinicians and individuals with the world's most advanced AI-driven dermatological diagnostic platform.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-3 mb-6 sm:mb-8">
-                <a href="mailto:contact@dermai.com" className="flex items-center gap-3 text-sm text-slate-400 hover:text-teal-400 transition-colors group">
+                <a href="mailto:contact@dermai.com" className="flex items-center gap-3 text-sm text-slate-600 hover:text-teal-600 transition-colors group">
                   <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>contact@dermai.com</span>
                 </a>
-                <a href="tel:+15551234567" className="flex items-center gap-3 text-sm text-slate-400 hover:text-teal-400 transition-colors group">
+                <a href="tel:+15551234567" className="flex items-center gap-3 text-sm text-slate-600 hover:text-teal-600 transition-colors group">
                   <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span>+1 (555) 123-4567</span>
                 </a>
-                <div className="flex items-center gap-3 text-sm text-slate-400">
+                <div className="flex items-center gap-3 text-sm text-slate-600">
                   <MapPin className="w-4 h-4" />
                   <span>123 Innovation Drive, Tech City</span>
                 </div>
@@ -97,10 +97,10 @@ const Footer: React.FC = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-slate-900/80 to-slate-950/80 border border-white/10 flex items-center justify-center hover:border-teal-500/50 hover:bg-teal-500/10 transition-all group"
+                      className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center hover:border-teal-500/50 hover:bg-teal-50 transition-all group"
                     >
                       <div className="absolute inset-0 bg-teal-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <IconComponent className="relative w-5 h-5 text-slate-400 group-hover:text-teal-400 transition-colors" />
+                      <IconComponent className="relative w-5 h-5 text-slate-500 group-hover:text-teal-600 transition-colors" />
                     </motion.a>
                   );
                 })}
@@ -115,13 +115,13 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h5 className="font-heading font-bold mb-6 text-teal-400 uppercase text-xs tracking-[0.2em] mb-6">Quick Links</h5>
+            <h5 className="font-heading font-bold mb-6 text-teal-600 uppercase text-xs tracking-[0.2em] mb-6">Quick Links</h5>
             <ul className="space-y-4">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-teal-400 transition-colors inline-flex items-center gap-2 group"
+                    className="text-sm text-slate-600 hover:text-teal-600 transition-colors inline-flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-500/0 group-hover:bg-teal-500 transition-all" />
                     {link.name}
@@ -138,13 +138,13 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h5 className="font-heading font-bold mb-6 text-teal-400 uppercase text-xs tracking-[0.2em] mb-6">Platform</h5>
+            <h5 className="font-heading font-bold mb-6 text-teal-600 uppercase text-xs tracking-[0.2em] mb-6">Platform</h5>
             <ul className="space-y-4">
               {platformLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-teal-400 transition-colors inline-flex items-center gap-2 group"
+                    className="text-sm text-slate-600 hover:text-teal-600 transition-colors inline-flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-500/0 group-hover:bg-teal-500 transition-all" />
                     {link.name}
@@ -161,13 +161,13 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h5 className="font-heading font-bold mb-6 text-teal-400 uppercase text-xs tracking-[0.2em] mb-6">Resources</h5>
+            <h5 className="font-heading font-bold mb-6 text-teal-600 uppercase text-xs tracking-[0.2em] mb-6">Resources</h5>
             <ul className="space-y-4">
               {resourcesLinks.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-teal-400 transition-colors inline-flex items-center gap-2 group"
+                    className="text-sm text-slate-600 hover:text-teal-600 transition-colors inline-flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-teal-500/0 group-hover:bg-teal-500 transition-all" />
                     {link.name}
@@ -184,7 +184,7 @@ const Footer: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="pt-8 sm:pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6"
+          className="pt-8 sm:pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6"
         >
           <p className="text-xs sm:text-sm text-slate-500 text-center md:text-left">
             © {currentYear} DermAI Technologies Inc. All rights reserved.

@@ -33,11 +33,11 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 md:py-32 lg:py-40 bg-slate-950 overflow-hidden">
+    <section className="relative py-20 sm:py-24 md:py-32 lg:py-40 bg-white overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,8 +52,8 @@ const Features: React.FC = () => {
           <h2 className="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-teal-400 mb-4 sm:mb-6">
             Core Capabilities
           </h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white tracking-tight max-w-3xl mx-auto">
-            Advanced Diagnostic <span className="text-teal-500">Technology</span>
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-slate-900 tracking-tight max-w-3xl mx-auto">
+            Advanced Diagnostic <span className="text-teal-600">Technology</span>
           </h3>
         </motion.div>
 
@@ -71,7 +71,7 @@ const Features: React.FC = () => {
                 className="group relative"
               >
                 {/* Card */}
-                <div className="relative h-full p-6 sm:p-8 lg:p-6 xl:p-8 bg-gradient-to-br from-slate-900/80 to-slate-950/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-white/5 hover:border-teal-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-teal-500/10 overflow-hidden">
+                <div className="relative h-full p-6 sm:p-8 lg:p-6 xl:p-8 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 hover:border-teal-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-teal-500/10 overflow-hidden">
                   {/* Gradient Overlay on Hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
                   
@@ -91,12 +91,12 @@ const Features: React.FC = () => {
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-lg sm:text-xl lg:text-lg xl:text-xl font-heading font-bold text-white mb-3 sm:mb-4 tracking-tight group-hover:text-teal-50 transition-colors">
+                    <h4 className="text-lg sm:text-xl lg:text-lg xl:text-xl font-heading font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight group-hover:text-teal-700 transition-colors">
                       {feature.title}
                     </h4>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base lg:text-sm xl:text-base text-slate-400 leading-relaxed font-light group-hover:text-slate-300 transition-colors">
+                    <p className="text-sm sm:text-base lg:text-sm xl:text-base text-slate-600 leading-relaxed font-light group-hover:text-slate-700 transition-colors">
                       {feature.desc}
                     </p>
 

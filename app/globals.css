@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100;
+    @apply bg-white text-slate-900;
     scroll-behavior: smooth;
   }
 }
@@ -14,10 +14,10 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-slate-950;
+  @apply bg-slate-100;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-teal-800 rounded-full;
+  @apply bg-teal-500 rounded-full;
 }
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-teal-600;
