@@ -7,8 +7,8 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 const sora = Sora({ subsets: ['latin'], variable: '--font-sora' });
 
 export const metadata: Metadata = {
-    title: 'DermAI | Precision Diagnostics',
-    description: 'Clinical-grade AI diagnostics powered by 3D volumetric scanning.',
+    title: 'Skinapse Labs',
+    description: 'Holistic Skin Diagnosis Powered By Multilayer Image Analysis and Patient Context.',
 };
 
 export default function RootLayout({
