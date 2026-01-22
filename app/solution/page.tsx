@@ -67,7 +67,8 @@ export default function Solution() {
                   {/* Video Container */}
                   <div className="relative aspect-video bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
                     {/* Placeholder for video */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <p className="text-sm font-semibold text-slate-300 mb-4 uppercase tracking-wider">Coming soon</p>
                       <button className="group/play relative">
                         <div className="absolute inset-0 rounded-full bg-teal-500/20 blur-2xl group-hover/play:bg-teal-500/30 transition-all duration-300" />
                         <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center transition-all group-hover/play:scale-110 shadow-lg shadow-teal-500/50">

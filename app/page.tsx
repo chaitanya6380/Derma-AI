@@ -25,7 +25,8 @@ const TeamMemberImage = ({ member }: { member: { name: string; image: string } }
     <img
       src={member.image}
       alt={member.name}
-      className="w-full h-full object-cover"
+      className="w-full h-full object-cover object-top"
+      style={{ objectPosition: 'center top' }}
       onError={() => setImageError(true)}
     />
   );
@@ -56,11 +57,11 @@ export default function Home() {
   ];
 
   const teamMembers = [
-    { name: 'John Nguyen', role: 'Chief Executive Officer', image: '/team/john-nguyen.jpg' },
-    { name: 'Sai Vishnu Chitra', role: 'Chief Operating Officer', image: '/team/sai-vishnu-chitra.jpg' },
-    { name: 'Ishaan Buddharaju', role: 'Chief Technical Officer', image: '/team/ishaan-buddharaju.jpg' },
-    { name: 'Michael Lamiman', role: 'Chief Engineer', image: '/team/michael-lamiman.jpg' },
-    { name: 'Dr. Josephine Nguyen', role: 'Chief Medical Officer', image: '/team/josephine-nguyen.jpg' },
+    { name: 'John Nguyen', role: 'Chief Executive Officer', image: 'https://storage.googleapis.com/new_client_files/Derm%20-%20AI/john.jpeg' },
+    { name: 'Sai Vishnu Chitra', role: 'Chief Operating Officer', image: 'https://storage.googleapis.com/new_client_files/Derm%20-%20AI/sai%20vishnu%20chitra.jpeg' },
+    { name: 'Ishaan Buddharaju', role: 'Chief Technical Officer', image: 'https://storage.googleapis.com/new_client_files/Derm%20-%20AI/ishaan.jpeg' },
+    { name: 'Michael Lamiman', role: 'Chief Engineer', image: 'https://storage.googleapis.com/new_client_files/Derm%20-%20AI/michael.jpeg' },
+    { name: 'Dr. Josephine Nguyen', role: 'Chief Medical Officer', image: 'https://storage.googleapis.com/new_client_files/Derm%20-%20AI/josephine.jpeg' },
   ];
 
   return (
@@ -82,7 +83,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-slate-900 tracking-tight mb-6 sm:mb-8">
-                About <span className="text-teal-600">DermAI</span>
+                About <span className="text-teal-600">Skinapse Labs</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-slate-600 leading-relaxed font-light max-w-3xl mx-auto">
                 Revolutionizing dermatological diagnostics through cutting-edge AI technology and clinical expertise.

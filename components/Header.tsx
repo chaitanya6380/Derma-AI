@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Shield, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
@@ -10,8 +10,12 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between gap-4 sm:gap-6">
           {/* Left: Logo + Title & Subtitle */}
           <Link href="/" className="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-1 min-w-0 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-teal-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
-              <Shield size={18} className="sm:w-5 sm:h-5" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img
+                src="https://storage.googleapis.com/new_client_files/Derm%20-%20AI/xscade-creative-studio%20(13).jpeg"
+                alt="Skinapse Labs Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col min-w-0">
               <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold tracking-tight text-slate-900 leading-tight">

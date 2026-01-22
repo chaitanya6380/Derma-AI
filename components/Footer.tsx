@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Shield, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer: React.FC = () => {
@@ -38,8 +38,12 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.5 }}
             >
               <Link href="/" className="flex items-center gap-3 mb-6 sm:mb-8 group">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-teal-500/20">
-                  <Shield size={20} className="sm:w-6 sm:h-6" />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-teal-500/20 overflow-hidden">
+                  <img
+                    src="https://storage.googleapis.com/new_client_files/Derm%20-%20AI/xscade-creative-studio%20(13).jpeg"
+                    alt="Skinapse Labs Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <span className="text-2xl sm:text-3xl font-heading font-bold tracking-tighter text-slate-900">
                   Skinapse <span className="text-teal-500">Labs</span>

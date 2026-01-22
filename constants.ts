@@ -7,18 +7,18 @@ export const MILESTONES: Milestone[] = [
     year: "2024",
     title: "Inception + Seed",
     description: "Founded with a vision to revolutionize dermatological diagnostics through advanced AI technology.",
-    imageUrl: "https://picsum.photos/400/300?random=4"
+    imageUrl: "https://storage.googleapis.com/new_client_files/Derm%20-%20AI/image%201.jpeg"
   },
   {
     id: 2,
     year: "2025",
     title: "Model Testing and External Validation",
     description: "Comprehensive testing and validation of our diagnostic models with external partners and clinical trials.",
-    imageUrl: "https://picsum.photos/400/300?random=5"
+    imageUrl: "https://storage.googleapis.com/new_client_files/Derm%20-%20AI/image%203.JPG.jpeg"
   },
   {
     id: 3,
-    year: "2025",
+    year: "2026",
     title: "LLC Enterprise Launch",
     description: "Official launch of our enterprise platform, bringing advanced dermatological AI diagnostics to businesses worldwide.",
     imageUrl: "https://picsum.photos/400/300?random=6"
