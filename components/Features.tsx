@@ -8,14 +8,14 @@ const Features: React.FC = () => {
   const features = [
     {
       icon: Microscope,
-      title: "Molecular Scan",
-      desc: "Deep skin layer penetration via synthetic aperture spectral imaging.",
+      title: "Skin Characteristic Evaluation",
+      desc: "Using 10,000+ labeled dermatology images to improve detection accuracy and model robustness.",
       gradient: "from-teal-500/20 via-cyan-500/10 to-transparent"
     },
     {
       icon: Brain,
-      title: "Neural Diagnostic",
-      desc: "Transformer-based analysis trained on 50M+ clinical pathological samples.",
+      title: "External Factors & Patient Evaluation",
+      desc: "Incorporating past medical history and patient-specific characteristics to generate more personalized, context-aware insights.",
       gradient: "from-cyan-500/20 via-teal-500/10 to-transparent"
     },
     {

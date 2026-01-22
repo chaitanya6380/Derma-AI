@@ -156,7 +156,7 @@ const HeroScanner: React.FC = () => {
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-4">
         <motion.img
           src="/3d-face.svg.png"
-          alt="DermAI 3D head diagnostic model"
+          alt="Skinapse Labs 3D head diagnostic model"
           className="max-h-[60vh] max-w-[80vw] md:max-w-[45vw] w-auto h-auto object-contain transition-transform duration-500"
           style={{
             transform: `translateX(${scrollProgress * 40 - 20}px) rotateY(${scrollProgress * 18}deg)`,
