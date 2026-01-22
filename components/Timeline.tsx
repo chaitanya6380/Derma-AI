@@ -71,7 +71,7 @@ const Timeline: React.FC = () => {
         >
           <h2 className="text-xs sm:text-sm font-mono uppercase tracking-[0.3em] text-teal-400 mb-4 sm:mb-6">Our Journey</h2>
           <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-slate-900 tracking-tight">
-            Evolving <span className="text-teal-600">Healthcare AI</span>
+            Evolving <span className="text-teal-600">Dermatology AI</span>
           </h3>
         </motion.div>
 

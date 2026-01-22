@@ -4,31 +4,24 @@ import { Milestone, ScanPoint } from './types';
 export const MILESTONES: Milestone[] = [
   {
     id: 1,
-    year: "2021",
-    title: "Inception & Seed",
-    description: "Founded by MIT researchers focusing on neural-net visual diagnostics.",
-    imageUrl: "https://picsum.photos/400/300?random=1"
+    year: "2024",
+    title: "Inception + Seed",
+    description: "Founded with a vision to revolutionize dermatological diagnostics through advanced AI technology.",
+    imageUrl: "https://picsum.photos/400/300?random=4"
   },
   {
     id: 2,
-    year: "2022",
-    title: "Clinical Trials Phase I",
-    description: "Successfully validated 99.2% accuracy across 10,000 diverse skin types.",
-    imageUrl: "https://picsum.photos/400/300?random=2"
+    year: "2025",
+    title: "Model Testing and External Validation",
+    description: "Comprehensive testing and validation of our diagnostic models with external partners and clinical trials.",
+    imageUrl: "https://picsum.photos/400/300?random=5"
   },
   {
     id: 3,
-    year: "2023",
-    title: "FDA Breakthrough Status",
-    description: "Granted priority review for our novel diagnostic AI software.",
-    imageUrl: "https://picsum.photos/400/300?random=3"
-  },
-  {
-    id: 4,
-    year: "2024",
-    title: "Global Enterprise Launch",
-    description: "Deployment across 150+ medical centers in 12 countries.",
-    imageUrl: "https://picsum.photos/400/300?random=4"
+    year: "2025",
+    title: "LLC Enterprise Launch",
+    description: "Official launch of our enterprise platform, bringing advanced dermatological AI diagnostics to businesses worldwide.",
+    imageUrl: "https://picsum.photos/400/300?random=6"
   }
 ];
 

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare, User, Building } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, User, Building, Linkedin } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -32,20 +32,26 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      content: 'contact@dermai.com',
-      link: 'mailto:contact@dermai.com'
+      content: 'info@skinapse.ai',
+      link: 'mailto:info@skinapse.ai'
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      content: '+1 (703) 585-9624',
+      link: 'tel:+17035859624'
     },
     {
       icon: MapPin,
       title: 'Address',
-      content: '123 Innovation Drive, Tech City, TC 12345',
+      content: '39 Hemenway St, Boston, MA',
       link: '#'
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      content: 'Connect with us on LinkedIn',
+      link: 'https://www.linkedin.com/company/skinapse-labs/'
     }
   ];
 
