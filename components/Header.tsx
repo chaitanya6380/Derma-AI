@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between gap-4 sm:gap-6">
           {/* Left: Logo + Title & Subtitle */}
           <Link href="/" className="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-1 min-w-0 hover:opacity-80 transition-opacity">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
               <img
                 src="https://storage.googleapis.com/new_client_files/Derm%20-%20AI/xscade-creative-studio%20(13).jpeg"
                 alt="Skinapse Labs Logo"

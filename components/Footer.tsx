@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.5 }}
             >
               <Link href="/" className="flex items-center gap-3 mb-6 sm:mb-8 group">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-teal-500/20 overflow-hidden">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-teal-500/20 overflow-hidden">
                   <img
                     src="https://storage.googleapis.com/new_client_files/Derm%20-%20AI/xscade-creative-studio%20(13).jpeg"
                     alt="Skinapse Labs Logo"
