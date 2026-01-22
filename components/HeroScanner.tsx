@@ -142,7 +142,10 @@ const HeroScanner: React.FC = () => {
     <section
       ref={containerRef}
       className="relative w-full overflow-hidden bg-slate-950"
-      style={{ aspectRatio: '16/9', maxHeight: '90vh' }}
+      style={{ 
+        minHeight: '85vh',
+        height: '85vh',
+      }}
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -157,7 +160,7 @@ const HeroScanner: React.FC = () => {
         <motion.img
           src="/3d-face.svg.png"
           alt="Skinapse Labs 3D head diagnostic model"
-          className="max-h-[60vh] max-w-[80vw] md:max-w-[45vw] w-auto h-auto object-contain transition-transform duration-500"
+          className="w-full h-full max-h-[85vh] max-w-[90vw] sm:max-h-[75vh] sm:max-w-[70vw] md:max-h-[70vh] md:max-w-[50vw] lg:max-h-[65vh] lg:max-w-[45vw] object-contain transition-transform duration-500"
           style={{
             transform: `translateX(${scrollProgress * 40 - 20}px) rotateY(${scrollProgress * 18}deg)`,
           }}
@@ -168,7 +171,7 @@ const HeroScanner: React.FC = () => {
       </div>
 
       {/* Simple overlay copy */}
-      <div className="absolute inset-x-0 bottom-10 z-30 px-4 sm:px-8 flex justify-center pointer-events-none">
+      <div className="absolute inset-x-0 bottom-4 sm:bottom-6 md:bottom-10 z-30 px-4 sm:px-8 flex justify-center pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
