@@ -15,10 +15,10 @@ const Header: React.FC = () => {
             </div>
             <div className="flex flex-col min-w-0">
               <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-bold tracking-tight text-slate-900 leading-tight">
-                Precision Skin <span className="text-teal-600">Diagnostics.</span>
+                Skinapse <span className="text-teal-600">Labs</span>
               </h1>
               <p className="text-[10px] sm:text-xs md:text-sm text-slate-500 leading-tight font-light hidden sm:block truncate">
-                Clinical-grade AI diagnostics powered by 3D volumetric scanning
+                Holistic Skin Diagnosis Powered By Multilayered Image Analysis and Patient Context.
               </p>
             </div>
           </Link>
@@ -28,10 +28,9 @@ const Header: React.FC = () => {
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
               <Link href="/" className="text-sm font-medium text-slate-500 hover:text-teal-600 transition-colors">Home</Link>
               <Link href="/solution" className="text-sm font-medium text-slate-500 hover:text-teal-600 transition-colors">Solution</Link>
-              <Link href="/contact" className="text-sm font-medium text-slate-500 hover:text-teal-600 transition-colors">Contact us</Link>
             </nav>
 
-            <button className="hidden sm:block px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all shadow-lg shadow-teal-500/20">
+            <button href="/contact" className="hidden sm:block px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 transition-all shadow-lg shadow-teal-500/20">
               Request Demo
             </button>
             <button className="p-2 lg:hidden text-slate-500 hover:text-teal-600 transition-colors">
