@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Home', href: '/about' },
+    { name: 'Solution', href: '/solution' },
+    { name: 'Contact Us', href: '/contact' },
   ];
-
+/*
   const platformLinks = [
     { name: 'Technology', href: '#' },
     { name: 'Clinical Studies', href: '#' },
@@ -27,11 +27,11 @@ const Footer: React.FC = () => {
     { name: 'Security', href: '#' },
     { name: 'Support', href: '#' },
   ];
-
+*/
   const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    //{ icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/skinapse-labs/', label: 'LinkedIn' },
+    //{ icon: Github, href: '#', label: 'GitHub' },
   ];
 
   return (
@@ -58,27 +58,27 @@ const Footer: React.FC = () => {
                   <Shield size={20} className="sm:w-6 sm:h-6" />
                 </div>
                 <span className="text-2xl sm:text-3xl font-heading font-bold tracking-tighter text-slate-900">
-                  DERM<span className="text-teal-500">AI</span>
+                  Skinapse<span className="text-teal-500">Labs</span>
                 </span>
               </Link>
               
               <p className="text-slate-600 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed max-w-sm">
-                Empowering clinicians and individuals with the world's most advanced AI-driven dermatological diagnostic platform.
+                Holistic Skin Diagnosis Powered By Multilayered Image Analysis and Patient Context.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-3 mb-6 sm:mb-8">
                 <a href="mailto:contact@dermai.com" className="flex items-center gap-3 text-sm text-slate-600 hover:text-teal-600 transition-colors group">
                   <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span>contact@dermai.com</span>
+                  <span>info@skinapse.ai</span>
                 </a>
                 <a href="tel:+15551234567" className="flex items-center gap-3 text-sm text-slate-600 hover:text-teal-600 transition-colors group">
                   <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+1 (713) 585-9624</span>
                 </a>
                 <div className="flex items-center gap-3 text-sm text-slate-600">
                   <MapPin className="w-4 h-4" />
-                  <span>123 Innovation Drive, Tech City</span>
+                  <span>39 Hemenway St, Boston, MA</span>
                 </div>
               </div>
 
@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
           className="pt-8 sm:pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6"
         >
           <p className="text-xs sm:text-sm text-slate-500 text-center md:text-left">
-            © {currentYear} DermAI Technologies Inc. All rights reserved.
+            © {currentYear} Skinapse Labs. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6 md:gap-8">
             <a href="#" className="text-xs sm:text-sm text-slate-500 hover:text-teal-400 transition-colors">
